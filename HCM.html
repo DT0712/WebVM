@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP. Hồ Chí Minh</title>
+  <link rel="stylesheet" href="Tinh.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+  <div class="container">
+    <h1 class="logo">🌍 Du lịch Việt Nam</h1>
+    <nav class="nav-links">
+      <a href="#overview">Tổng quan</a>
+      <a href="#destinations">Điểm đến</a>
+      <a href="#events">Sự kiện</a>
+      <a href="#food">Ẩm thực</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+
+ 
+  <!-- HERO SECTION -->
+  <header class="hero-section">
+    <div class="container">
+      <img src="TPHCM/AnhNenHcm.jpg" class="hero-img" alt="Ảnh nền TP.HCM">
+      <div class="hero-text">
+        <h1>Thành phố Hồ Chí Minh</h1>
+        <button class="cta-button" onclick="scrollToOverview()">Khám phá ngay</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="overview">
+    <h2 data-aos="fade-up">🏙️ Thông tin tổng quan</h2>
+    <div class="overview-content" data-aos="zoom-in" data-aos-delay="200">
+      <div class="text">
+        <p>Thành phố Hồ Chí Minh, còn được biết đến với tên gọi quen thuộc là Sài Gòn, là đô thị lớn nhất Việt Nam và giữ vai trò trung tâm kinh tế, văn hóa, giáo dục và giao thương của cả nước. Tọa lạc ở miền Nam, nơi đây không chỉ nổi bật với sự sôi động, hiện đại mà còn lưu giữ những dấu ấn lịch sử đậm nét qua các công trình kiến trúc Pháp cổ như Nhà thờ Đức Bà, Bưu điện Trung tâm, hay Dinh Độc Lập.</p>
+        <p>TP.HCM có nhịp sống nhanh, năng động và luôn tràn đầy sức sống, là nơi hội tụ của nhiều nền văn hóa vùng miền và quốc tế. Du khách đến đây có thể trải nghiệm sự đa dạng qua ẩm thực phong phú, từ những món ăn đường phố dân dã đến các nhà hàng sang trọng mang đậm phong cách Á – Âu. Những khu vực nổi bật như chợ Bến Thành, phố đi bộ Nguyễn Huệ, khu phố Tây Bùi Viện hay các trung tâm thương mại hiện đại luôn thu hút đông đảo khách trong và ngoài nước.</p>
+        <p>Với hệ thống giao thông phát triển, sân bay quốc tế Tân Sơn Nhất và mạng lưới xe buýt, taxi, metro đang xây dựng, việc di chuyển trong thành phố ngày càng thuận tiện. TP.HCM là điểm dừng chân lý tưởng cho mọi hành trình khám phá miền Nam Việt Nam.</p>
+        <button class="rounded-btn" onclick="openModal()">Xem thêm</button>
+      </div>
+      <div class="image">
+        <img src="TPHCM/GGmapHCM.png" alt="Bản đồ TP.HCM" class="map">
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <h3>🏛️ Lịch sử</h3>
+      <p><strong>Tên cũ:</strong> Sài Gòn, từng là thủ đô của Nam Kỳ (thời Pháp) và Việt Nam Cộng hòa.</p>
+      <p><strong>Thời kỳ ban đầu:</strong> Vùng đất này từng thuộc quốc gia cổ Phù Nam và sau đó là Đế chế Khmer với tên gọi Prey Nokor (có nghĩa là "thành trong rừng"). Tên gọi Trĩ Côn cũng có thể là phiên âm của Sài Gòn trong các ghi chép cổ.</p>
+
+      <p><strong>Giai đoạn khai phá của Chúa Nguyễn (Thế kỷ 17): </strong></p>
+      <ul>
+        <li>Năm 1623, Chúa Nguyễn cho phép lập đồn thu thuế tại Prey Nokor (Sài Gòn) và Kas Krobei (Bến Nghé), đánh dấu sự hiện diện của người Việt.</li>
+        <li>Người Việt bắt đầu tập trung sinh sống xung quanh các đồn này, hình thành các khu thị tứ sầm uất.</li>
+        <li>Năm 1698, danh tướng Nguyễn Hữu Cảnh chính thức thiết lập huyện Tân Bình thuộc phủ Gia Định, chính thức sáp nhập vùng đất này vào Đại Việt, đánh dấu sự ra đời của một đô thị.</li>
+      </ul>
+
+      <p><strong>Thời Pháp thuộc (Giữa thế kỷ 19 - giữa thế kỷ 20): </strong></p>
+      <ul>
+        <li>Năm 1859, Pháp chiếm Sài Gòn và đến năm 1862, triều đình nhà Nguyễn chính thức nhượng lại cho Pháp.</li>
+        <li>Sài Gòn được quy hoạch và xây dựng thành một đô thị kiểu phương Tây, trở thành thủ phủ của Liên bang Đông Dương trong một thời gian, được mệnh danh là "Hòn ngọc Viễn Đông" với nhiều công trình kiến trúc mang đậm dấu ấn Pháp như Nhà thờ Đức Bà, Bưu điện Trung tâm, Nhà hát Thành phố, Dinh Độc Lập...</li>
+        <li>Kinh tế phát triển mạnh mẽ với các nhà máy, xưởng cơ khí, cảng biển, đường sắt, tạo nên một trung tâm kinh tế, thương mại lớn.</li>
+      </ul>
+
+      <p><strong>Sau năm 1954:</strong> Sài Gòn trở thành thủ đô của Việt Nam Cộng hòa, tiếp tục là trung tâm kinh tế, văn hóa quan trọng nhất miền Nam.</p>
+      <p><strong>Sau năm 1975:</strong> Ngày 30/4/1975, Sài Gòn được giải phóng, thống nhất đất nước. Đến ngày 2/7/1976, Quốc hội Việt Nam Dân chủ Cộng hòa thống nhất đổi tên thành phố thành "Thành phố Hồ Chí Minh" để vinh danh Chủ tịch Hồ Chí Minh.</p>
+
+      <h3>🎭 Văn hóa</h3>
+      <p>Văn hóa Thành phố Hồ Chí Minh là sự pha trộn độc đáo của nhiều yếu tố, tạo nên một bản sắc riêng:</p>
+      <ul>
+        <li><strong>Tính mở và hội nhập:</strong> Là vùng đất mới được khai phá, Thành phố Hồ Chí Minh có sự cởi mở, năng động, dễ dàng tiếp nhận và hòa nhập các luồng văn hóa mới từ nhiều nơi trên thế giới. Điều này thể hiện qua sự đa dạng về ẩm thực, kiến trúc, lối sống.</li>
+        <li><strong>Đa dạng cộng đồng:</strong> Thành phố là nơi quy tụ của nhiều cộng đồng dân tộc khác nhau như người Kinh, Hoa, Khmer, Chăm... Mỗi cộng đồng mang đến những nét văn hóa riêng, tạo nên bức tranh đa sắc màu. Khu Chợ Lớn (Quận 5) là một ví dụ điển hình cho sự tồn tại và phát triển mạnh mẽ của văn hóa người Hoa.</li>
+        <li><strong>Văn hóa đường phố:</strong> Nổi bật với các hoạt động kinh doanh buôn bán tấp nập, ẩm thực đường phố phong phú, cuộc sống về đêm sôi động.</li>
+        <li><strong>Kiến trúc đa dạng:</strong> Từ những công trình kiến trúc cổ kính thời Pháp thuộc đến các tòa nhà chọc trời hiện đại như Bitexco Financial Tower, Landmark 81, phản ánh sự phát triển và biến đổi không ngừng của thành phố.</li>
+        <li><strong>Nghệ thuật và biểu diễn:</strong> Thành phố Hồ Chí Minh là trung tâm của các hoạt động nghệ thuật đương đại, đồng thời vẫn giữ gìn và phát huy các loại hình nghệ thuật truyền thống như múa rối nước, cải lương...</li>
+        <li><strong>Con người:</strong> Người dân Thành phố Hồ Chí Minh được biết đến với sự thân thiện, hiếu khách, lạc quan và năng động. Họ luôn sẵn lòng chia sẻ, giúp đỡ và hợp tác.</li>
+      </ul>
+
+      <h3>🌤️ Đặc điểm khí hậu</h3>
+      <ul>
+        <li>Nhiệt đới gió mùa, 2 mùa rõ rệt:
+          <ul>
+            <li>Mùa mưa: tháng 5–11</li>
+            <li>Mùa khô: tháng 12–4</li>
+          </ul>
+        </li>
+        <li>Nhiệt độ trung bình: 27–30°C</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DESTINATIONS -->
+  <section id="destinations" class="destinations">
+    <h2>Điểm đến nổi bật</h2>
+    
+    <h3 class="subheading">🌄 Danh lam thắng cảnh</h3>
+    <div class="cards">
+      
+      <!-- Danh lam -->
+      <div class="card"><img src="TPHCM/CanGio.jpg" alt="Cần Giờ"><p>Cần Giờ</p><p>⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/BinhQuoi.png" alt="Bình Quới"><p>Bình Quới</p><p>⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/HamThuThien.png" alt="Hầm Thủ Thiêm"><p>Hầm Thủ Thiêm</p><p>⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/81.jpg" alt="Landmark 81"><p>Landmark 81 Skyview</p><p>⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/ChoBenThanh.jpg" alt="Chợ Bến Thành"><p>Chợ Bến Thành</p><p>⭐⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/BenBachDang.png" alt="Bến Bạch Đằng"><p>Bến Bạch Đằng</p><p>⭐⭐⭐⭐⭐</p></div>
+      
+    </div>
+
+    <h3 class="subheading">🏛️ Di tích lịch sử – văn hóa</h3>
+    <div class="cards">
+      <!-- Di tích -->
+      <div class="card"><img src="TPHCM/DinhDocLap.jpg" alt="Dinh Độc Lập"><p>Dinh Độc Lập</p><p>⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/NhaThoDucBa.jpg" alt="Nhà thờ Đức Bà"><p>Nhà thờ Đức Bà</p><p>⭐⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/BuuDien.jpg" alt="Bưu điện"><p>Bưu điện trung tâm</p><p>⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/BTCTCT.jpg" alt="Bảo tàng chiến tranh"><p>Chứng tích chiến tranh</p><p>⭐⭐⭐⭐</p></div>
+    </div>
+
+    <h3 class="subheading">🎡 Khu vui chơi – giải trí</h3>
+    <div class="cards">
+      <!-- Giải trí -->
+      <div class="card"><img src="TPHCM/SuoiTien.jpg" alt="Suối Tiên"><p>Suối Tiên</p><p>⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/DamSen.png" alt="Đầm Sen"><p>Đầm Sen</p><p>⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/SnowT.jpg" alt="Snow Town"><p>Snow Town</p><p>⭐⭐⭐⭐</p></div>
+      <div class="card"><img src="TPHCM/PhoDiBo.jpg" alt="Nguyễn Huệ"><p>Phố đi bộ Nguyễn Huệ</p><p>⭐⭐⭐⭐</p></div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="events">
+    <h2>Sự kiện & lễ hội sắp tới</h2>
+    <div class="event-grid">
+      <div class="event-card">
+        <img src="TPHCM/LeHoiDuongSach.jpg" alt="Đường sách Tết" class="event-image">
+        <div class="event-info">
+          <h3>📚 Lễ hội đường sách Tết</h3>
+          <p>🗓️ Tết 2025</p>
+          <p>📍 Khu trung tâm TP.HCM</p>
+          <p class="desc">Gian hàng sách, nghệ thuật đường phố, không gian Tết cổ truyền.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <img src="TPHCM/LVT.jpg" alt="Ẩm thực Nam Bộ" class="event-image">
+        <div class="event-info">
+          <h3>🍽️ Lễ hội ẩm thực Nam Bộ</h3>
+          <p>🗓️ 4–5/3</p>
+          <p>📍 Công viên Lê Văn Tám</p>
+          <p class="desc">Thưởng thức món ngon vùng miền, trình diễn nấu ăn dân gian.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOD -->
+  <section id="food" class="food">
+    <h2>Ẩm thực đặc trưng</h2>
+    <div class="cards">
+      <div class="card"><img src="TPHCM/ComTam.jpg" alt="Cơm tấm"><p>Cơm tấm Sài Gòn</p></div>
+      <div class="card"><img src="TPHCM/HuTieu.png" alt="Hủ tiếu"><p>Hủ tiếu Nam Vang</p></div>
+      <div class="card"><img src="TPHCM/BanhMI.jpg" alt="Bánh mì"><p>Bánh mì thịt nướng</p></div>
+      <div class="card"><img src="TPHCM/GoiCuon.png" alt="Gỏi cuốn"><p>Gỏi cuốn</p></div>
+      <div class="card"><img src="TPHCM/BanhTrangTron.jpg" alt="Bánh tráng"><p>Bánh tráng trộn</p></div>
+      <div class="card"><img src="TPHCM/BunMam.jpg" alt="Bún mắm"><p>Bún mắm</p></div>
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function scrollToOverview() {
+      document.getElementById("overview").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById("myModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+    </script>
+  
+  <!-- Footer -->
+  <footer id="contact"  class="footer">
+  <div class="footer-column">
+    <h4>Liên hệ</h4>
+    <p>📞 Điện thoại: 0909-xxx-xxx</p>
+    <p>
+        <span style="display: inline-block; width: 24px;">📧</span>
+        Email: duytd2183@ut.edu.vn<br>
+        <span style="display: inline-block; width: 70px;"></span>tdanh589@gmail.com
+    </p>
+
+  </div>
+
+  <div class="footer-column">
+    <h4>Thông tin môn học</h4>
+    <p>Môn học: <strong>Lập trình Web</strong></p>
+    <p>Giáo viên hướng dẫn: <strong>Trần Anh Quân</strong></p>
+    <p>Niên khóa: 2023</p>
+  </div>    
+
+  <div class="footer-column">
+    <h4>Trường Đại học GTVT TP.HCM</h4>
+    <p>Địa chỉ: Số 2, đường Võ Oanh, Phường 25, Quận Bình Thạnh, TP. HCM</p>
+    <p>Bậc đào tạo: Đại học - chính quy</p>
+    <p>Khoa: Viện đào tạo Chất lượng cao</p>
+    <p>Ngành: Công nghệ thông tin</p>
+    <p>Chuyên ngành: Công nghệ thông tin</p>
+  </div>
+</footer>
+
+</body>
+</html>
