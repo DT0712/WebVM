@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 18, 2025 lúc 12:09 PM
+-- Thời gian đã tạo: Th6 25, 2025 lúc 08:02 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
--- Phiên bản PHP: 8.0.30
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,8 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `travel_db`
+-- Cơ sở dữ liệu: `travel_db.sql`
 --
+CREATE DATABASE IF NOT EXISTS `travel_db.sql` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `travel_db.sql`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Cấu trúc bảng cho bảng `destinations`
 --
 
+DROP TABLE IF EXISTS `destinations`;
 CREATE TABLE `destinations` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -51,6 +54,7 @@ INSERT INTO `destinations` (`id`, `name`, `category`, `image_path`, `rating`, `p
 -- Cấu trúc bảng cho bảng `events`
 --
 
+DROP TABLE IF EXISTS `events`;
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -67,6 +71,7 @@ CREATE TABLE `events` (
 -- Cấu trúc bảng cho bảng `food`
 --
 
+DROP TABLE IF EXISTS `food`;
 CREATE TABLE `food` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -89,6 +94,7 @@ INSERT INTO `food` (`id`, `name`, `image_path`, `province_id`) VALUES
 -- Cấu trúc bảng cho bảng `modal_content`
 --
 
+DROP TABLE IF EXISTS `modal_content`;
 CREATE TABLE `modal_content` (
   `id` int(11) NOT NULL,
   `section` enum('lichsu','vanhoa','khiHau') DEFAULT NULL,
@@ -103,6 +109,7 @@ CREATE TABLE `modal_content` (
 -- Cấu trúc bảng cho bảng `overview`
 --
 
+DROP TABLE IF EXISTS `overview`;
 CREATE TABLE `overview` (
   `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -117,6 +124,7 @@ CREATE TABLE `overview` (
 -- Cấu trúc bảng cho bảng `provinces`
 --
 
+DROP TABLE IF EXISTS `provinces`;
 CREATE TABLE `provinces` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -132,6 +140,33 @@ CREATE TABLE `provinces` (
 INSERT INTO `provinces` (`id`, `name`, `slug`, `description`, `image_path`) VALUES
 (1, 'TP.Hồ Chí Minh', '2', 'Thành phố ở miền nam', 'assets/image/provinces/saigon.jpg'),
 (3, 'Vũng Tàu', 'dsadasd', 'Vũng Tàu là 1 tỉnh đẹp', 'assets/image/provinces/vung_tau.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `registration`
+--
+
+DROP TABLE IF EXISTS `registration`;
+CREATE TABLE `registration` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `registration`
+--
+
+INSERT INTO `registration` (`id`, `username`, `password`) VALUES
+(1, 'duc', '123'),
+(2, 'ducduy', '123'),
+(3, 'abdc', '123'),
+(4, 'aya', '123'),
+(5, 'ayaa', '12'),
+(6, 'qwe', '123'),
+(7, 'ta', '123'),
+(8, 'tuilaai', '123');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -180,6 +215,13 @@ ALTER TABLE `provinces`
   ADD UNIQUE KEY `slug` (`slug`);
 
 --
+-- Chỉ mục cho bảng `registration`
+--
+ALTER TABLE `registration`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -218,6 +260,12 @@ ALTER TABLE `overview`
 --
 ALTER TABLE `provinces`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `registration`
+--
+ALTER TABLE `registration`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
