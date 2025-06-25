@@ -1,30 +1,26 @@
 <?php
-$success = 0;
-$user = 0;
+$login = 0;
+$invalid = 0;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include 'config.php';
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM `registration` WHERE username='$username'";
+    $sql = "SELECT * FROM `registration` WHERE username='$username' AND password='$password'";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
         $num = mysqli_num_rows($result);
         if ($num > 0) {
-            $user = 1;
+            $login = 1;
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['login_success'] = true;
+            header('location:dashboard.php');
+            exit;
         } else {
-            $sql = "INSERT INTO `registration` (username, password)
-                    VALUES('$username', '$password')";
-            $result = mysqli_query($conn, $sql);
-            if ($result) {
-                $success = 1;
-                header('location:login.php');
-                exit;
-            } else {
-                die(mysqli_error($conn));
-            }
+            $invalid = 1;
         }
     }
 }
@@ -34,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Signup Page</title>
+    <title>Login Page</title>
 
     <!-- Bootstrap & Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -42,14 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <style>
         body {
-            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .signup-box {
+        .login-box {
             background-color: #fff;
             padding: 40px;
             border-radius: 12px;
@@ -58,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             max-width: 400px;
         }
 
-        .signup-box h2 {
+        .login-box h2 {
             margin-bottom: 30px;
             text-align: center;
             color: #333;
@@ -66,11 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         .form-control:focus {
             box-shadow: none;
-            border-color: #f97316;
+            border-color: #4e73df;
         }
 
         .input-group-text {
-            background-color: #f97316;
+            background-color: #4e73df;
             color: white;
             border: none;
         }
@@ -78,29 +74,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 
-<div class="signup-box">
-    <h2>Đăng ký tài khoản</h2>
+<div class="login-box">
+    <h2>Đăng nhập</h2>
 
-    <?php if ($user): ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Lỗi!</strong> Tên đăng nhập đã tồn tại.
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-        </div>
-    <?php endif; ?>
-
-    <?php if ($success): ?>
+    <?php if ($login): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Thành công!</strong> Đăng ký thành công.
+            <strong>Thành công!</strong> Đăng nhập thành công.
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
     <?php endif; ?>
 
-    <form method="POST" action="sign.php">
+    <?php if ($invalid): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Lỗi!</strong> Tên đăng nhập hoặc mật khẩu không đúng.
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    <?php endif; ?>
+
+    <form method="POST" action="login.php">
         <div class="form-group">
             <label for="username">Tên đăng nhập</label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-user-plus"></i></span>
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
                 <input type="text" name="username" class="form-control" placeholder="Nhập tên đăng nhập" required>
             </div>
@@ -116,9 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
 
-        <button type="submit" class="btn btn-warning btn-block text-white font-weight-bold">
-            Đăng ký
-        </button>
+        <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
     </form>
 </div>
 

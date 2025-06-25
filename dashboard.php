@@ -1,4 +1,11 @@
 <?php include 'config.php'; ?>
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    header('location:login.php');
+}
+
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -7,6 +14,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+    <?php
+    if (isset($_SESSION['login_success'])) {
+        echo "<script>
+            alert('Đăng nhập thành công! Chào mừng " . $_SESSION['username'] . " đến với website.');
+        </script>";
+        unset($_SESSION['login_success']);
+    }
+    ?>
+    
     <div class="dashboard">
         <!-- Thanh menu -->
         <?php include 'pages/navbar.php'; ?>
