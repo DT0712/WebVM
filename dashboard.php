@@ -14,14 +14,23 @@ if(!isset($_SESSION['username'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <?php
-    if (isset($_SESSION['login_success'])) {
-        echo "<script>
-            alert('Đăng nhập thành công! Chào mừng " . $_SESSION['username'] . " đến với website.');
-        </script>";
-        unset($_SESSION['login_success']);
-    }
-    ?>
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<?php if (isset($_SESSION['login_success'])): ?>
+<script>
+    Swal.fire({
+        title: 'Đăng nhập thành công!',
+        text: 'Chào mừng <?php echo $_SESSION["username"]; ?> đến với website.',
+        icon: 'success',
+        timer: 3000,
+        showConfirmButton: false,
+        timerProgressBar: true
+    });
+</script>
+<?php unset($_SESSION['login_success']); ?>
+<?php endif; ?>
+
     
     <div class="dashboard">
         <!-- Thanh menu -->
